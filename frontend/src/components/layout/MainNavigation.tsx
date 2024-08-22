@@ -20,7 +20,7 @@ const MainNavigation = () => {
 
   //B. bringing in TypedUseSelectorHook to show mobile login button:
   const { showMobileLogin } = useTypedSelector((state) => state.authForm);
-  console.log(showMobileLogin);
+  //console.log(showMobileLogin);
 
   //C. bringing in useDispatch to implement the logout function:
   const dispatch = useDispatch<AddDispatch>();

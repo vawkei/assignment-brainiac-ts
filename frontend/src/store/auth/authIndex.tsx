@@ -16,7 +16,7 @@ interface AuthState {
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
-  message: string;
+  message: any
   user: User | null;
 }
 
@@ -149,11 +149,9 @@ export const authSlice = createSlice({
         state.user = null;
         console.log(action.payload);
 
-        // Type assertion or type guard
-        const errorPayload = action.payload as ErrorPayload;
-
-        console.log(errorPayload);
-        toast.error(errorPayload.msg, { position: "top-left" });
+        state.message = action.payload
+        console.log(state.message);
+        toast.error(state.message, { position: "top-left" });
       })
       //login==================================================================:
       .addCase(login.pending, (state) => {

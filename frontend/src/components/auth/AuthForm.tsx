@@ -13,6 +13,7 @@ import { useMediaQuery } from "react-responsive";
 import MobileAuthForm from "./mobileAuthForm/MobileAuthForm";
 
 const AuthForm = () => {
+  
   //A. bringing in useDispatch to set showForm to false in redux when X is clicked:
   const dispatch = useDispatch<AddDispatch>();
 
@@ -82,6 +83,8 @@ const AuthForm = () => {
       toast.error("Something went wrong", { position: "top-left" });
     }
   };
+
+
 
   //if user is registered/loggedIn successfully, he gets navigated to welcome page and the authform gets hidden:
   useEffect(() => {

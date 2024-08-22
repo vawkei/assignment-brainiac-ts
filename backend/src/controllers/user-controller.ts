@@ -26,6 +26,12 @@ export const register = async (req: Request, res: Response) => {
   };
 
   try {
+
+    const emailExists = await User.findOne({email});
+    if(emailExists){
+      return res.status(400).json({msg:"User already registered"})
+    };
+
     await User.create(userData);
     res.status(201).json({ msg: "Please login" });
   } catch (error) {
