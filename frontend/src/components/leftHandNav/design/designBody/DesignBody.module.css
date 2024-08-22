@@ -1,7 +1,7 @@
 .coverBody-container{
   margin:2rem 8rem;
   padding: 0.5rem;
-  min-width: 25rem;
+  min-width: 22rem;
 }
 .coverBody-container .search{
   display: none;
@@ -87,9 +87,6 @@
     margin-top: -9rem;
    }
 }
-
-
-
 
 
 
