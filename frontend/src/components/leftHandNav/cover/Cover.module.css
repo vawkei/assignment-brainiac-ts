@@ -1,7 +1,9 @@
 .cover-container{
     background-color: rgb(87, 87, 240);
+    /* min-width: 40rem; */
 }
 .cover-container h2{
     text-align: center;
     padding: 1rem;
+    min-width: 22rem;
 }
