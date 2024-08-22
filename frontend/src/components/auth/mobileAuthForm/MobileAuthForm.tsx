@@ -49,6 +49,7 @@ const MobileAuthForm = () => {
 
   const setShowAuthForm = () => {
     dispatch(authFormActions.HIDE_FORM());
+    dispatch(authFormActions.HIDE_MOBILE_LOGIN_BTN())
   };
 
   //G. Register and Login Function==============================================>>>
