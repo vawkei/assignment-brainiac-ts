@@ -14,8 +14,8 @@ const TopComponent = () => {
   const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
   const { showForm } = useTypedSelector((state) => state.authForm);
   // console.log(showForm);
-  const { isLoggedIn,user } = useTypedSelector((state) => state.auth);
-  // console.log(user);
+  const { isLoggedIn } = useTypedSelector((state) => state.auth);
+  
   
   // B. the dispatch here shows the authForm, by setting it to true in redux when clicked
   const dispatch = useDispatch<AddDispatch>();
@@ -50,7 +50,7 @@ const TopComponent = () => {
         </>
       ) : (
         // <h1>Hello World</h1>
-        <h1>{`Hello ${user?.email}` }</h1>
+        <h1>{`Hello world` }</h1>
       )}
       {showForm && <AuthPage />}
     </div>
