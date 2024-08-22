@@ -1,0 +1,24 @@
+.routes {
+    display: flex;
+    /* gap: 1rem; */
+    min-height: 80vh;
+    width: 100%;
+    /* margin-top: 3rem; */
+}
+.nav-bar{
+    width: 15%;
+    min-height: 80vh;
+}
+.content{
+    width: 85%;
+}
+
+@media screen and (max-width:760px){
+    .nav-bar{
+        width: 0%;
+        display: none;
+    }
+    .content{
+        width: 100%;
+    }
+}

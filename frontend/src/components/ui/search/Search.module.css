@@ -1,0 +1,17 @@
+.search{
+    display: flex;
+    padding: 1rem 0;
+}
+.search input{
+    border: none;
+}
+.search input:focus{
+    outline: none;
+}
+
+@media screen and (max-width:440px){
+    .search input{
+        padding: 0.5rem;
+        border-radius: 6px;
+    }
+}

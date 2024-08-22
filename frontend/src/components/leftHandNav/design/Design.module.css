@@ -1,0 +1,15 @@
+.design-container{
+    background-color: rgb(183, 177, 177);
+}
+.design-container h2{
+    text-align: center;
+    padding: 1rem;
+}
+
+
+@media screen and (max-width:440px){
+    .design-container{
+        background-color: rgb(183, 177, 177);
+        height: 100vh;
+    }   
+}

@@ -1,0 +1,42 @@
+.nav-container{
+    width: 100%;
+    min-width: 20rem;
+    border-right: 1px #ccc solid;
+    padding: 1.5rem;
+}
+.nav-container nav ul{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    padding: 1rem;
+}
+.nav-container nav ul a{
+    text-decoration: none;
+    color: black;
+    padding: 0 1rem;
+}
+.active{
+    color: red;
+}
+.activeNav{
+    background-color: green;
+    padding: 0.1rem;
+    border-radius: 6px;
+}
+.items{
+    padding: 1.5rem 0;
+}
+.item{
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+/* .active{
+    color: red;
+} */
+
+
+@media screen and (max-width:760px){
+    .nav-container{
+        display: none;
+    }
+}

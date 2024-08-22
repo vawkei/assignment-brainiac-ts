@@ -1,0 +1,123 @@
+.auth{
+    margin: 3rem auto;
+    width: 95%;
+    max-width: 25rem;
+    border-radius: 6px;
+    /* background-color: #38015c; */
+    background-color: #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    padding: 1rem;
+    text-align: left;
+    position: relative;
+}
+.auth h1{
+    text-align: center;
+    color: #000;
+}
+
+.close-button{
+    position: absolute;
+    top: 0.5rem;
+    right: 2rem;
+    cursor: pointer;
+    background-color: green;
+    padding: 0.4rem;
+    border-radius: 50%;
+}
+.close-button:hover{
+    background-color: orange;
+}
+
+.control{
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+.control label{
+    display: block;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+.control input{
+    font: inherit;
+    /* background-color: #f1e1fc; */
+    /* color: #38015c; */
+    border-radius: 4px;
+    border: 1px solid #000;
+    width: 100%;
+    text-align: left;
+    padding: 0.25rem;
+}
+
+.actions{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.actions button{
+    cursor: pointer;
+    font: inherit;
+    color: white;
+    background-color: #000;
+    border-radius: 4px;
+    padding: 0.5rem 2.5rem;
+}
+.actions button:hover{
+    background-color: #fff;
+    border-color: #000;
+    color: #000;
+}
+.actions .toggle{
+    margin-top: 1rem;
+    background-color: transparent;
+    color: #000;
+    border: none;
+    padding: 0.15rem 1.5rem;
+}
+.actions .toggle:hover{
+    background-color: transparent;
+    color: green;
+}
+.google-div{
+    margin-top: 1rem;
+    padding: 1rem;
+}
+.google-div button{
+    width: 100%;
+    padding: 0.5rem;
+    border-radius:4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.google-div :hover{
+    cursor: pointer;
+    background-color: transparent;
+    color: green;
+}
+.google-div button span{
+    margin: 0rem 0.5rem;
+    font-size: large;
+}
+.or{
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+@media screen and (max-width:760px){
+ 
+    .actions button{
+        width: 100%;
+    }
+    .close-button{
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+    }
+    .control input{
+        text-align: left;
+        padding: 1rem;
+    }
+}
