@@ -11,5 +11,6 @@
     .design-container{
         background-color: rgb(183, 177, 177);
         height: 100vh;
+        min-width: 22rem;
     }   
 }

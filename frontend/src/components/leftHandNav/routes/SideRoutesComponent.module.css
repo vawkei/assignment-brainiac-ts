@@ -6,10 +6,12 @@
     /* margin-top: 3rem; */
 }
 .nav-bar{
+    margin-top: 5rem;
     width: 15%;
     min-height: 80vh;
 }
 .content{
+    margin-top: 5rem;
     width: 85%;
 }
 
@@ -19,6 +21,7 @@
         display: none;
     }
     .content{
+        margin-top: 0;
         width: 100%;
     }
 }

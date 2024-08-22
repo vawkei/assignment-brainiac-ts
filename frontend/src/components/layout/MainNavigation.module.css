@@ -7,6 +7,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    position: fixed;
 }
 .harmburger{
     display: none;
@@ -48,6 +49,7 @@
 @media screen and (max-width:760px){
     .nav-container{
         width: 100%;
+        min-width: 22rem;
         height: 3rem;
         position: relative;
     }
