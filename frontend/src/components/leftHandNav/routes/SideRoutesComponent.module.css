@@ -3,15 +3,13 @@
     /* gap: 1rem; */
     min-height: 80vh;
     width: 100%;
-    /* margin-top: 3rem; */
+    margin-top: 5rem;
 }
 .nav-bar{
-    margin-top: 5rem;
     width: 15%;
     min-height: 80vh;
 }
 .content{
-    margin-top: 5rem;
     width: 85%;
 }
 
