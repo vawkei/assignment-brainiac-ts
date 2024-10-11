@@ -1,11 +1,11 @@
-import image from "../../../../assets/tlos1.jpeg";
+// import image from "../../../../assets/tlos1.jpeg";
 
-const TlouCover = () => {
-    return ( 
-        <div>
+// const TlouCover = () => {
+//     return ( 
+//         <div>
             
-        </div>
-     );
-}
+//         </div>
+//      );
+// }
  
-export default TlouCover;
+// export default TlouCover;
