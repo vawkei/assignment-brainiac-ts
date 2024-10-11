@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(express.json());
 
 const corsOptions = {
-  //origin: 'http://localhost:3000', //frontend URL
+  //origin: 'http://localhost:3000', //frontend URL when local
   origin: ["http://localhost:3000", "https://brainiactask.onrender.com"],
   credentials: true, // Allow cookies and credentials
 };
