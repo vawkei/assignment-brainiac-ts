@@ -37,22 +37,40 @@ app.use("/api/v1/auth",authRoute);
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
 
-const port = process.env.PORT || 5000;
+// const port = process.env.PORT || 5000;
+// let url:any;
+// url = process.env.MONGODB_URI
+
+// const start = async () => {
+//   try {
+//     await mongoose.connect(url);
+//     app.listen(5000, "localhost", () => {
+//       console.log(`server listening on port ${port}`);
+//     });
+//   } catch (error) {
+//     console.log(error)
+//   };
+// };
+
+// start()
+
+const port = Number(process.env.PORT) || 5000;  // Cast to number
 let url:any;
-url = process.env.MONGODB_URI
+url = process.env.MONGODB_URI;
 
 const start = async () => {
   try {
     await mongoose.connect(url);
-    app.listen(5000, "localhost", () => {
+    app.listen(port, "0.0.0.0", () => {
       console.log(`server listening on port ${port}`);
     });
   } catch (error) {
-    console.log(error)
-  };
+    console.log(error);
+  }
 };
 
-start()
+start();
+
 
 
 // npm install --save-dev @types/cookie-parser
