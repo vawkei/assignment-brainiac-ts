@@ -23,7 +23,7 @@ const AuthForm = () => {
 
   //B. bringing in TypedUseSelectorHook and useSelector for the authentication:
   const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const { isLoading, isLoggedIn, isSuccess } = useTypedSelector(
+  const { isLoading, isLoggedIn, isSuccess, message } = useTypedSelector(
     (state) => state.auth
   );
 
@@ -38,6 +38,7 @@ const AuthForm = () => {
 
   const [enteredEmail, setEnteredEmail] = useState<string>("");
   const [enteredPassword, setEnteredPassword] = useState<string>("");
+  const [serverMessage, setServerMessage] = useState<string>("");
 
   const enteredEmailInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -80,7 +81,8 @@ const AuthForm = () => {
       console.log("name:", enteredEmail, "password:", enteredPassword);
     } catch (error) {
       console.log("error:", error);
-      toast.error("Something went wrong", { position: "top-left" });
+      // toast.error(message || "Something went wrong", { position: "top-left" });
+      setServerMessage(message);
     }
   };
 
@@ -92,13 +94,14 @@ const AuthForm = () => {
       dispatch(authFormActions.HIDE_FORM());
       navigate("/welcome");
     }
-  }, [isLoggedIn, isSuccess, dispatch]);
+  }, [isLoggedIn, isSuccess, message, dispatch]);
 
   return (
     <div>
       {!isMobile ? (
         <section className={classes.auth}>
           {isLoading && <p>Loading...</p>}
+          <p style={{color:"red"}}>{message}</p>
           <h1>{haveAccount ? "Login" : "Sign Up"}</h1>
 
           <form action="" onSubmit={submitHandler}>

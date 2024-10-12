@@ -178,6 +178,7 @@ export const authSlice = createSlice({
         const errorPayload = action.payload as ErrorPayload;
 
         console.log(errorPayload);
+        state.message = errorPayload;
         toast.error(errorPayload.msg, { position: "top-left" });
       })
       //logout===================================================================:
