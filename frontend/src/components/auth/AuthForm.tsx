@@ -38,7 +38,7 @@ const AuthForm = () => {
 
   const [enteredEmail, setEnteredEmail] = useState<string>("");
   const [enteredPassword, setEnteredPassword] = useState<string>("");
-  const [serverMessage, setServerMessage] = useState<string>("");
+//  const [serverMessage, setServerMessage] = useState<string>("");
 
   const enteredEmailInputChangeHandler = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -82,7 +82,7 @@ const AuthForm = () => {
     } catch (error) {
       console.log("error:", error);
       // toast.error(message || "Something went wrong", { position: "top-left" });
-      setServerMessage(message);
+      // setServerMessage(message);
     }
   };
 
