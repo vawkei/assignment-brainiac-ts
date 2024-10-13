@@ -19,7 +19,8 @@ const MobileAuthForm = () => {
   const { isLoading, isLoggedIn, isSuccess, message } = useTypedSelector(
     (state) => state.auth
   );
-  console.log(isLoggedIn)
+  console.log(isLoggedIn);
+  console.log(isLoading);
 
   //C. bringing in useNavigator to navigate user to welcome page when loggedIn successfully:
   const navigate = useNavigate();
