@@ -26,11 +26,14 @@ const AuthForm = () => {
   const { isLoading, isLoggedIn, isSuccess, message } = useTypedSelector(
     (state) => state.auth
   );
+  console.log(message);
+  console.log(isLoading);
 
   //C. bringing in useNavigator to navigate user to welcome page when loggedIn successfully:
   const navigate = useNavigate();
 
   const [haveAccount, setHaveAccount] = useState<boolean>(false);
+  const [isSending,setIsSending] = useState<boolean>(false);
 
   const switchAuthModeHandler = () => {
     setHaveAccount((prevState) => !prevState);
@@ -73,14 +76,19 @@ const AuthForm = () => {
 
       //checking to see if the user already has an account or not===>:
       if (!haveAccount) {
+        setIsSending(true);
         await dispatch(register(userData));
       } else {
+        setIsSending(true)
         await dispatch(login(userData));
       }
       console.log("name:", enteredEmail, "password:", enteredPassword);
     } catch (error) {
       console.log("error:", error);
+      
       // toast.error(message || "Something went wrong", { position: "top-left" });
+    }finally{
+      setIsSending(false)
     }
   };
 
@@ -98,7 +106,8 @@ const AuthForm = () => {
     <div>
       {!isMobile ? (
         <section className={classes.auth}>
-          {isLoading && <p>Loading...</p>}
+          {/* {isLoading && <p>Loading... please wait!</p>} */}
+          {isSending && <p>Sending...</p>}
           <p style={{color:"red"}}>{message}</p>
           <h1>{haveAccount ? "Login" : "Sign Up"}</h1>
 
@@ -140,10 +149,10 @@ const AuthForm = () => {
             </div>
 
             <div className={classes.actions}>
-              {!isLoading && (
+              {!isSending && (
                 <button>{haveAccount ? "Login" : "Create Account"}</button>
               )}
-              {isLoading && <p>Loading...</p>}
+              {isSending && <p>Sending...</p>}
               <button
                 type="button"
                 className={classes.toggle}
@@ -157,7 +166,7 @@ const AuthForm = () => {
         </section>
       ) : (
         <section>
-          <MobileAuthForm/>
+          <MobileAuthForm />
         </section>
       )}
     </div>

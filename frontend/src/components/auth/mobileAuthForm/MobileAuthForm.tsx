@@ -16,7 +16,7 @@ const MobileAuthForm = () => {
 
   //B. bringing in TypedUseSelectorHook and useSelector for the authentication:
   const useTypedSelector: TypedUseSelectorHook<RootState> = useSelector;
-  const { isLoading, isLoggedIn, isSuccess } = useTypedSelector(
+  const { isLoading, isLoggedIn, isSuccess, message } = useTypedSelector(
     (state) => state.auth
   );
   console.log(isLoggedIn)
@@ -26,6 +26,7 @@ const MobileAuthForm = () => {
 
   //D.   checking if the user already got ann account or not:
   const [haveAccount, setHaveAccount] = useState<boolean>(false);
+  const [isSending,setIsSending] = useState<boolean>(false);
 
   const switchAuthModeHandler = () => {
     setHaveAccount((prevState) => !prevState);
@@ -71,13 +72,17 @@ const MobileAuthForm = () => {
 
       //checking to see if the user already has an account or not===>:
       if (!haveAccount) {
+        setIsSending(true);
         await dispatch(register(userData));
       } else {
+        setIsSending(true);
         await dispatch(login(userData));
       }
     } catch (error) {
       console.log("error:", error);
       toast.error("Something went wrong", { position: "top-left" });
+    }finally{
+      setIsSending(false)
     }
   };
 
@@ -87,7 +92,7 @@ const MobileAuthForm = () => {
       dispatch(authFormActions.HIDE_MOBILE_LOGIN_BTN())
       navigate("/welcome");
     }
-  }, [isLoggedIn, isSuccess, navigate,dispatch]);
+  }, [isLoggedIn, isSuccess,message,navigate,dispatch]);
 
   return (
     <section className={classes.auth}>
@@ -97,7 +102,9 @@ const MobileAuthForm = () => {
           <span onClick={setShowAuthForm}> X </span>
         </div>
 
-        {isLoading && <p>Loading...</p>}
+        {/* {isLoading && <p>Loading...</p>} */}
+        {isSending && <p>Sending...</p>}
+        <p style={{color:"red"}}>{message}</p>
         <h1>{haveAccount ? "Login in to Figma" : "Sign in to Figma"}</h1>
 
         <div className={classes["main-svg"]}>
@@ -135,10 +142,10 @@ const MobileAuthForm = () => {
         </div>
 
         <div className={classes.actions}>
-          {!isLoading && (
+          {!isSending && (
             <button>{haveAccount ? "Login" : "Create Account"}</button>
           )}
-          {isLoading && <p>Loading...</p>}
+          {isSending && <p>Sending...</p>}
           <button
             type="button"
             className={classes.toggle}

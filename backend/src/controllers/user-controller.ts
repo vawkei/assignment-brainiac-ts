@@ -33,6 +33,7 @@ export const register = async (req: Request, res: Response) => {
     };
 
     await User.create(userData);
+    console.log("registered successfully...");
     res.status(201).json({ msg: "Please login" });
   } catch (error) {
     res.status(500).json({ msg: error });
@@ -52,6 +53,7 @@ export const login = async (req: Request, res: Response) => {
     console.log("starting the try block...");
     const user = await User.findOne({ email });
     if (!user) {
+      console.log("User doesn't exist")
       res.status(404).json({ msg: "User doesn't exist" });
       return;
     }
@@ -61,16 +63,16 @@ export const login = async (req: Request, res: Response) => {
       return;
     }
 
-    console.log("registered successfully...");
+    
 
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
+      console.log("passwords match...");
       res.status(401).json({ msg: "Invalid password" });
       return;
     }
 
-    console.log("passwords match...");
-
+  
     console.log("about to jwt.sign...");
     const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_V!, {
       expiresIn: process.env.JWT_LIFETIME,
